@@ -1,9 +1,11 @@
 DECLARE
-    v_cont number := o;
+    v_cont NUMBER := 0;
 BEGIN
-    loop
-        dbms_outuput.put_line(v_cont);
-        v_cont :=  v_cont + 1;
-    exit when v_cont > 10;
-    end loop;
+    LOOP
+        dbms_output.put_line(v_cont);
+
+        v_cont := v_cont + 1;
+
+        EXIT WHEN v_cont > 10;
+    END LOOP;
 END;
