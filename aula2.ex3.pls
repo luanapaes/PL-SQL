@@ -8,7 +8,7 @@ DECLARE
     vSalario empregados.salario%TYPE;
     id_func  empregados.id%TYPE;
 
-    vCount NUMBER := 0;
+    vLinhasAfetadas NUMBER := 0;
 BEGIN
     OPEN c_emp;
     LOOP
@@ -19,11 +19,11 @@ BEGIN
             DELETE FROM empregados
             WHERE id = id_func;
 
-            vCount := vCount + SQL%ROWCOUNT;
+            vLinhasAfetadas := vLinhasAfetadas + SQL%ROWCOUNT;
         END IF;
 
     END LOOP;
     CLOSE c_emp;
 
-    dbms_output.put_line('Total excluídos: ' || vCount);
+    dbms_output.put_line('Total excluídos: ' || vLinhasAfetadas);
 END;
